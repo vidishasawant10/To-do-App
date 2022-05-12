@@ -4,6 +4,8 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import TodoColors from '../TodoColors';
 
 export default TodoList = ({list}) => {
+    const completedCount =list.todos.filter(todo => todo.completed).length;
+    const remainingCount =list.todos.length -completedCount;
     return (
         <View style ={[styles.listContainer, {backgroundColor: TodoColors.skyBlue}]}>
             <Text style ={styles.listTitle} numberOfLines = {2}>
@@ -11,11 +13,11 @@ export default TodoList = ({list}) => {
             </Text>
             <View>
                 <View style ={{alignItems: "center"}}>
-                    <Text style ={styles.count}>0 </Text>
-                    <Text style ={styles.subtitle}>Remaning</Text>
+                    <Text style ={styles.count}>{remainingCount}</Text>
+                    <Text style ={styles.subtitle}>Remaining</Text>
                 </View>
                 <View style ={{alignItems: "center"}}>
-                    <Text style ={styles.count}>0 </Text>
+                    <Text style ={styles.count}>{completedCount} </Text>
                     <Text style ={styles.subtitle}>Completed</Text>
                 </View>
             </View>
@@ -40,5 +42,18 @@ const styles =StyleSheet.create({
         fontWeight:"700",
         color:Colors.black,
         marginBottom:18
+    },
+    count: {
+        textAlign:"center",
+        fontSize: 35,
+        fontWeight:"200",
+        color:Colors.black
+    },
+
+    subtitle:{
+        textAlign:"center",
+        fontSize: 14,
+        fontWeight: "700",
+        color: Colors.black
     }
-})
+});
