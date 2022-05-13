@@ -8,16 +8,16 @@ import TodoColors from '../TodoColors';
 
 export default class AddListModal extends React.Component{
     state ={
-        name : ""
+        name : "",
+        color: TodoColors.blue
     };
 
     createTodo = () => {
-        const {name} = this.state
 
-        tempData.push({
-            name,
-            todos:[]
-        })
+        const {name,color} = this.state
+
+        const list ={name,color}
+        this.props.addList(list);
 
         this.setState({
             name: ""});
