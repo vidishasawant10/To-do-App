@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Modal, SafeAreaView, FlatList, KeyboardAvoidingView, TextInput} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Modal, SafeAreaView, FlatList, KeyboardAvoidingView, TextInput, Keyboard} from 'react-native';
 import {AntDesign, Ionicons} from '@expo/vector-icons';
 import colors from "../TodoColors";
 import App from "../App";
@@ -15,6 +15,16 @@ export default class TodoModal extends React.Component {
 
         this.props.updateList(list);
         
+    };
+
+    addTodo = () => {
+        let list =this.props.list
+        list.todos.push({title: this.state.newTodo, completed: false})
+
+        this.props.updateList(list);
+        this.setState ({newTodo: ""});
+
+        Keyboard.dismiss();
     };
     renderTodo= (todo, index) =>{
         return(
@@ -62,8 +72,12 @@ export default class TodoModal extends React.Component {
                     </View>
 
                     <View style ={[styles.section, styles.footer]}>
-                        <TextInput style ={[styles.input, {borderColor: colors.black}]}/>
-                        <TouchableOpacity style ={[styles.addTodo, {backgroundColor:list.color}]}>
+                        <TextInput style ={[styles.input, {borderColor: colors.black}]} 
+                        onChangeText ={text => this.setState({newTodo:text}) }
+                        value ={this.state.newTodo}
+                        />
+                        <TouchableOpacity style ={[styles.addTodo, {backgroundColor:list.color}]}
+                        onPress ={() => this.addTodo()}>
                             <AntDesign name = "plus" size ={16} color ={colors.white}/>
                         </TouchableOpacity>
                     </View>

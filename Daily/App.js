@@ -65,6 +65,7 @@ export default class App extends React.Component {
             horizontal ={true} 
             showsHorizontallScrollIndicator = {false} 
             renderItem ={({item}) => this.renderList(item)}
+            keyboardShouldPersistTaps ="always"
         />
         </View>
       </View>
