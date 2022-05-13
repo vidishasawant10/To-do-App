@@ -31,8 +31,8 @@ export default class App extends React.Component {
           <FlatList 
             data={tempData} 
             keyExtractor ={item => item.name} 
-            vertical ={true} 
-            showsVerticalScrollIndicator = {false} 
+            horizontal ={true} 
+            showsHorizontallScrollIndicator = {false} 
             renderItem ={({item}) =><TodoList list ={item} />}
         />
         </View>

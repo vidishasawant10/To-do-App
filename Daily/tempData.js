@@ -30,6 +30,29 @@ export default tempData =[
         todos:[
             {
                 title: "Milk",
+                completed: true
+            },
+            {
+                title : "Cheese",
+                completed: true
+            },
+            {
+                title:"Butter",
+                completed:true
+            },
+            {
+                title:"Green Vegetables",
+                completed: false
+            },
+
+        ]
+    },
+    {
+        name: "Birthday",
+        color: "#24A6D9",
+        todos:[
+            {
+                title: "Milk",
                 completed: false
             },
             {
