@@ -30,7 +30,7 @@ export default tempData =[
         todos:[
             {
                 title: "Milk",
-                completed: false
+                completed: true
             },
             {
                 title : "Cheese",

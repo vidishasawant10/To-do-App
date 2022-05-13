@@ -8,7 +8,7 @@ export default TodoList = ({list}) => {
     const remainingCount =list.todos.length -completedCount;
     return (
         <View style ={[styles.listContainer, {backgroundColor: TodoColors.skyBlue}]}>
-            <Text style ={styles.listTitle} numberOfLines = {2}>
+            <Text style ={styles.listTitle} numberOfLines = {1}>
                 {list.name}
             </Text>
             <View>
