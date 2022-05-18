@@ -6,12 +6,17 @@ import colors from './TodoColors';
 import tempData from './tempData';
 import TodoList from './components/TodoList';
 import AddListModal from './components/AddListModal';
+import Fire from './Fire';
 
 export default class App extends React.Component {
   state = {
     addTodoVisible: false,
     lists: tempData
   };
+
+  componentDidMount(){
+    firebase = new Fire();
+  }
 
   toggleAddTodoModal(){
     this.setState({addTodoVisible: !this.state.addTodoVisible})
